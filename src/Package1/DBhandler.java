@@ -99,7 +99,7 @@ public class DBhandler {
     }
 
     public static void insertStringToString(String strSTS){
-        System.out.println("Результат реверсирования строк : " + strSTS);
+        System.out.println("Результат слияния строк : " + strSTS);
         String query = "UPDATE " + tableName + " SET  string_to_string = '" + strSTS + "'ORDER BY id DESC LIMIT 1;";
         try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.executeUpdate();

@@ -14,7 +14,10 @@ public class Main {
                     4. Изменить порядок символов в первой строке на обратный
                     5. Объединить две строки в единое целое, результат сохранить в MySQL с последующим выводом
                     в консоль.
-                    6. Сохранить все данные (вышеполученные результаты) из MySQL в Excel и вывести на экран 
+                    6. Необходимо с клавиатуры задать несколько чисел.
+                    7. Проверить кажждое число на целостность
+                    8. Проверить каждое число на четность
+                    9. Сохранить все данные (вышеполученные результаты) из MySQL в Excel и вывести на экран 
                     0. Выход.""");
 
             String s = scanner.nextLine();
@@ -43,6 +46,12 @@ public class Main {
             case 5:
                 StringOperations.StringToString();
             case 6:
+                StringOperations.NumbersIntegrity();
+                break;
+            case 7:
+                StringOperations.NumbersParity();
+                break;
+            case 8:
                 ExcelExporter exporter = new ExcelExporter();
                 exporter.export();
             case 0:

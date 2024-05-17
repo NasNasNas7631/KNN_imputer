@@ -29,5 +29,33 @@ public class StringOperations {
         str0.append(DBhandler.getStrFromDB(1)).append(" ").append(DBhandler.getStrFromDB(2));
         DBhandler.insertStringToString(String.valueOf(str0));
     }
+    public static void NumbersIntegrity() {
+        try {
+            int number = scanner.nextInt();
+
+            if (number % 1 == 0) {
+                System.out.println("Целое");
+                DBhandler.saveString("Целое");
+
+            } else {
+                System.out.println("Не целое");
+                DBhandler.saveString("Не целое");
+            }
+        }
+    }
+
+    public static void NumbersParity() {
+        try {
+            int number = scanner.nextInt();
+
+            if (number % 2 == 0) {
+                System.out.println("Четное");
+                DBhandler.saveString("Четное");
+            } else {
+                System.out.println("Нечетное");
+                DBhandler.saveString("Нечетное");
+            }
+        }
+    }
 
 }
