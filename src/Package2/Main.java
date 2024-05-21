@@ -1,10 +1,9 @@
-package Package1;
+package Package2;
 
-import Package1.DBhandler;
+import Package2.DBhandler;
 import Package1.ExcelExporter;
 
 import java.util.Scanner;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -15,11 +14,8 @@ public class Main {
             System.out.println("""
                     1. Вывести все таблицы из MySQL.
                     2. Создать таблицу в MySQL.
-                    3. Ввести 2 строки
-                    4. Изменить порядок символов в первой строке на обратный
-                    5. Объединить две строки в единое целое, результат сохранить в MySQL с последующим выводом
-                    в консоль.
-                    6. Сохранить все данные (вышеполученные результаты) из MySQL в Excel и вывести на экран 
+                    3. Вписать данные в поля
+                    9. Сохранить все данные (вышеполученные результаты) из MySQL в Excel и вывести на экран 
                     0. Выход.""");
 
             String s = scanner.nextLine();
@@ -27,9 +23,7 @@ public class Main {
             handleUserChoice(choice, scanner, DBhandler.getTableName());
         } while (choice != 0);
     }
-
     private static void handleUserChoice (int choice, Scanner scanner, String tableName) {
-        String a, b;
         switch (choice) {
             case 1:
                 DBhandler.showAllTables();
@@ -40,13 +34,7 @@ public class Main {
                 DBhandler.createTable();
                 break;
             case 3:
-                StringOperations.inputStrings(scanner);
-                break;
-            case 4:
-                StringOperations.StringReverse();
-                break;
-            case 5:
-                StringOperations.StringToString();
+                Worker.inputInfo(scanner);
                 break;
             case 6:
                 ExcelExporter exporter = new ExcelExporter();

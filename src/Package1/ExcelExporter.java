@@ -1,3 +1,6 @@
+package Package1;
+
+import Package1.DBhandler;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileOutputStream;
@@ -37,7 +40,7 @@ public class ExcelExporter {
                     }
                 }
 
-                try (FileOutputStream out = new FileOutputStream("/Users/maksimkukin/Java_finashka/Java_calc/result/" + table + ".xlsx")) {
+                try (FileOutputStream out = new FileOutputStream("C:\\Users\\anans\\Desktop\\JavaJavaJava\\" + table + ".xlsx")) {
                     workbook.write(out);
                 }
 

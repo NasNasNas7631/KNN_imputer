@@ -6,10 +6,10 @@ import java.util.Collections;
 
 public class Students {
     private int numOfStudents;
-    private ArrayList<String> studentID = new ArrayList<>();
-    private ArrayList<String> studentSpecialty = new ArrayList<>();
-    private ArrayList<String> studentName = new ArrayList<>();
-    private ArrayList<String> studentGroup = new ArrayList<>();
+    private ArrayList<String> studentID = new ArrayList();
+    private ArrayList<String> studentSpecialty = new ArrayList();
+    private ArrayList<String> studentName = new ArrayList();
+    private ArrayList<String> studentGroup = new ArrayList();
 
     public void inputStudentDetails() {
         Scanner scanner = new Scanner(System.in);
@@ -30,28 +30,45 @@ public class Students {
             studentGroup.add(scanner.next());
         }
     }
-}
 
-public class SortedStudents extends Students {
-    @Override
-    public void inputStudentDetails() {
-        super.inputStudentDetails();
+    public int getNumOfStudents() {
+        return numOfStudents;
+    }
 
-        ArrayList<String> sortedList = new ArrayList<>(studentName);
-        Collections.sort(sortedList);
+    public void setNumOfStudents(int numOfStudents) {
+        this.numOfStudents = numOfStudents;
+    }
 
-        System.out.println("Sorted student list:");
-        System.out.format("%-15s %-20s %-20s %-15s\n", "ID", "Specialty", "Name", "Group");
-        for (String name : sortedList) {
-            int index = studentName.indexOf(name);
-            System.out.format("%-15s %-20s %-20s %-15s\n", studentID.get(index), studentSpecialty.get(index), studentName.get(index), studentGroup.get(index));
-        }
+    public ArrayList<String> getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(ArrayList<String> studentID) {
+        this.studentID = studentID;
+    }
+
+    public ArrayList<String> getStudentSpecialty() {
+        return studentSpecialty;
+    }
+
+    public void setStudentSpecialty(ArrayList<String> studentSpecialty) {
+        this.studentSpecialty = studentSpecialty;
+    }
+
+    public ArrayList<String> getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(ArrayList<String> studentName) {
+        this.studentName = studentName;
+    }
+
+    public ArrayList<String> getStudentGroup() {
+        return studentGroup;
+    }
+
+    public void setStudentGroup(ArrayList<String> studentGroup) {
+        this.studentGroup = studentGroup;
     }
 }
 
-public class Main {
-    public static void main(String[] args) {
-        SortedStudents sortedStudents = new SortedStudents();
-        sortedStudents.inputStudentDetails();
-    }
-}

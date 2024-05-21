@@ -1,5 +1,4 @@
-package Package3;
-
+package Package2;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,26 +28,30 @@ public class DBhandler {
     public static void createTable() {
         String sql_ = "CREATE TABLE IF NOT EXISTS " + tableName + " (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                "speciality VARCHAR(255), " +
                 "name_ VARCHAR(255), " +
-                "group_ int);";
+                "age INT, " +
+                "salary INT)";
         try (Connection conn = getConnection(); Statement stmt = conn.createStatement()) {
             stmt.execute(sql_);
             System.out.println("Таблица " + tableName + " успешно создана.");
         } catch (SQLException e) {
             System.out.println("Ошибка при создании таблицы " + tableName);
-            System.out.println(e);
         }
     }
 
-    public static void saveString(Students student) {
+    public static void saveString(Worker worker) {
 
-        String query = "INSERT INTO " + tableName + " (speciality, name_, group_) VALUES (?, ?, ?)";
+        System.out.println("Name: " + worker.getName());
+
+        System.out.println("Age: " + worker.getAge());
+        System.out.println("Salary: " + worker.getSalary());
+
+        String query = "INSERT INTO " + tableName + " (name_, age, salary) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query);  ) {
-            stmt.setString(1, String.valueOf(student.getStudentSpecialty()));
-            stmt.setString(2, String.valueOf(student.getStudentName()));
-            stmt.setString(3, String.valueOf(student.getStudentGroup()));
+            stmt.setString(1,worker.getName());
+            stmt.setInt(2, worker.getAge());
+            stmt.setInt(3, worker.getSalary());
             stmt.executeUpdate();
 
             System.out.println("Результат операции сохранен в таблицу " + tableName);
